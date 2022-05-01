@@ -5,8 +5,8 @@
 #include <dt-bindings/zmk/backlight.h>
 
 #define BASE 0
-#define BOOT 1
-#define NAV 2
+#define LOWER 1
+#define RAISE 2
 
 / {
 	keymap {
@@ -26,11 +26,11 @@
 				&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp  I    &kp  O  &kp  P   &kp LBKT &kp RBKT   &kp BSLH
 				&kp LCTRL &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp  K    &kp  L  &kp SEMI &kp SQT            &kp RET
 				&kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH                   &kp RSHFT
-				&kp LCTRL &kp LALT &kp LGUI            &lt NAV SPACE                       &kp RALT  &mo 1 &kp C_MENU    &kp RCTRL
+				&kp LCTRL &kp LALT &kp LGUI            &lt RAISE SPACE                       &kp RALT  &mo LOWER &kp C_MENU    &kp RCTRL
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
-		raise {
+		lower {
 			bindings = <
 				&bt BT_CLR &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12 &kp DEL
 				&trans &trans &kp UP &trans &trans &trans &trans &trans &kp INS &trans &kp PSCRN &kp SLCK &kp PAUSE_BREAK &rgb_ug RGB_TOG
@@ -40,23 +40,13 @@
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
-		nav {
+		raise {
 			bindings = <
 				&kp GRAVE &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12 &kp DEL
-				&trans &trans &trans &trans &trans &trans &kp PG_UP &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp PG_UP &trans &trans &trans
-				&trans  &trans &trans &trans &trans &trans &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN &trans       &trans
-				&trans    &trans &trans &trans &trans &trans &kp LG(LBKT) &kp HOME &kp END  &kp LG(RBKT)   &trans         &trans
+				&trans &trans &trans &trans &trans &trans &kp PG_UP &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp HOME &trans &trans &trans
+				&trans  &trans &trans &trans &trans &trans &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp END &trans       &trans
+				&trans    &trans &trans &trans &trans &trans &kp LG(LBKT) &kp LG(RBKT) &trans  &trans   &trans         &trans
 				&trans  &trans  &trans              &trans               &trans   &trans   &trans  &trans
-			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
-		windows {
-			bindings = <
-				&kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp  N8   &kp  N9 &kp  N0  &kp MINUS &kp EQUAL &kp BSPC
-				&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp  I    &kp  O  &kp  P   &kp LBKT &kp RBKT   &kp BSLH
-				&kp LCTRL &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp  K    &kp  L  &kp SEMI &kp SQT            &kp RET
-				&kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH                   &kp RSHFT
-				&kp LCTRL &kp LGUI &kp LALT            &lt NAV SPACE                       &kp RALT  &mo 1 &kp C_MENU    &kp RCTRL
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
